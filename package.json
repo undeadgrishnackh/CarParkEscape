@@ -1,0 +1,87 @@
+{
+  "name": "CodewarsKata",
+  "version": "0.0.1",
+  "description": "A compilation of Kata from CodeWars",
+  "license": "MIT",
+  "repository": "/CodewarsUnsort",
+  "main": "dist/index.js",
+  "author": {
+    "name": "Michele Brissoni",
+    "email": "michele.brissoni@ibm.com",
+    "url": "https://github.ibm.com/"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:debug": "jest --watchAll",
+    "coverage": "npm test -- --coverage",
+    "postcoverage": "opn coverage/lcov-report/index.html",
+    "lint": "eslint .",
+    "flow": "flow check",
+    "docs": "documentation readme src --section=API",
+    "postdocs": "git add README.md",
+    "clean": "rimraf dist",
+    "flowbuild": "flow-copy-source src dist",
+    "prebuild": "npm run docs && npm run clean && npm run flowbuild",
+    "build": "babel src -d dist",
+    "preversion": "npm run lint && npm test && npm run build",
+    "version": "standard-changelog && git add CHANGELOG.md",
+    "postpublish": "git push origin master --follow-tags",
+    "start": "node src/index.js",
+    "debug": "nodemon --inspect ./src/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "boilerplate-nodejs"
+  ],
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "mocha": "^6.0.2",
+    "request": "^2.88.0",
+    "slack": "^11.0.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "documentation": "^9.0.0-alpha.0",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-flowtype-errors": "^3.5.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "flow-bin": "^0.83.0",
+    "flow-copy-source": "^2.0.2",
+    "husky": "^1.1.2",
+    "jest-cli": "^23.6.0",
+    "lint-staged": "^7.3.0",
+    "opn-cli": "^3.1.0",
+    "prettier": "^1.14.3",
+    "rimraf": "^2.6.2",
+    "standard-changelog": "^2.0.1"
+  }
+}
