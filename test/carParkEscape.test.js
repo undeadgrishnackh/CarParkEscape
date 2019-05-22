@@ -58,48 +58,57 @@ describe('Unit Test', () => {
 });
 
 describe('E2E Test', () => {
-  it('1 Floor', () => {
-    const SCENARIO_ONE_FLOOR = [
-      [CAR, EMPTY, EMPTY, EMPTY, EMPTY],
-    ];
-    assert.deepEqual(escape(SCENARIO_ONE_FLOOR), ['R4'], "I aren't able to understand where where is the EXIT!");
-  });
-  it('2 Floors easy', () => {
-    const carpark = [
-      [1, 0, 0, 2, 0],
-      [0, 0, 0, 0, 0],
-    ];
-    assert.deepEqual(escape(carpark), ['L3', 'D1', 'R4'], "I aren't able to understand where where is the EXIT!");
-  });
-
-  it('4 Floors straight staircase', () => {
-    const carpark = [
-      [1, 0, 0, 2, 0],
-      [1, 0, 0, 0, 0],
-      [1, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-    ];
-    assert.deepEqual(escape(carpark), ['L3', 'D3', 'R4'], "I aren't able to understand where where is the EXIT!");
-  });
-
-  it('4 Floors zig zag staircase', () => {
-    const carpark = [
-      [1, 0, 0, 2, 0],
-      [0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-    ];
-    assert.deepEqual(escape(carpark), ['L3', 'D1', 'R4', 'D1', 'L4', 'D1', 'R4'], "I aren't able to understand where where is the EXIT!");
-  });
-
-  it('5 Floors zig zag staircase with car in the middle floor', () => {
-    const carpark = [
-      [1, 0, 0, 0, 0],
-      [1, 0, 0, 2, 0],
-      [0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-    ];
-    assert.deepEqual(escape(carpark), ['L3', 'D1', 'R4', 'D1', 'L4', 'D1', 'R4'], "I aren't able to understand where where is the EXIT!");
-  });
+  test.each([
+    [
+      '1 Floor',
+      [
+        [CAR, EMPTY, EMPTY, EMPTY, EMPTY],
+      ],
+      ['R4'],
+    ],
+    [
+      '2 Floors easy',
+      [
+        [1, 0, 0, 2, 0],
+        [0, 0, 0, 0, 0],
+      ],
+      ['L3', 'D1', 'R4'],
+    ],
+    [
+      '4 Floors straight staircase',
+      [
+        [1, 0, 0, 2, 0],
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+      ],
+      ['L3', 'D3', 'R4'],
+    ],
+    [
+      '4 Floors zig zag staircase',
+      [
+        [1, 0, 0, 2, 0],
+        [0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+      ],
+      ['L3', 'D1', 'R4', 'D1', 'L4', 'D1', 'R4'],
+    ],
+    [
+      '5 Floors zig zag staircase with car in the middle floor',
+      [
+        [1, 0, 0, 0, 0],
+        [1, 0, 0, 2, 0],
+        [0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+      ],
+      ['L3', 'D1', 'R4', 'D1', 'L4', 'D1', 'R4'],
+    ],
+  ])(
+    '%s',
+    (name, carPark, expectedPath) => {
+      assert.deepEqual(escape(carPark), expectedPath, "I aren't able to understand where where is the EXIT!");
+    },
+  );
 });
