@@ -1,4 +1,6 @@
 import {
+  EMPTY,
+  CAR,
   understandWhereAmI,
   moveToTheExit,
   escape,
@@ -56,6 +58,12 @@ describe('Unit Test', () => {
 });
 
 describe('E2E Test', () => {
+  it('1 Floor', () => {
+    const SCENARIO_ONE_FLOOR = [
+      [CAR, EMPTY, EMPTY, EMPTY, EMPTY],
+    ];
+    assert.deepEqual(escape(SCENARIO_ONE_FLOOR), ['R4'], "I aren't able to understand where where is the EXIT!");
+  });
   it('2 Floors easy', () => {
     const carpark = [
       [1, 0, 0, 2, 0],

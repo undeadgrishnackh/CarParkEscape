@@ -1,0 +1,24 @@
+TechDebt
+P too many loop on different stuff with potential deadlocks
+? recursive VS loops...
+S functional VS OOP: making it more declarative and decoupled
+
+TODO:
+understandWhereIAm
+
+
+Code Improvement
++ 2 more E2E: flat; right side stairscase on top of the exit
+? move to stairscase algorithm
+! what if no car park?
+D code duplicated moving around
+S style on constant
+S behaviour and low coding algorithm clash
++ split E2E and Unit
++ improve test header with "expect" --> Style???
+- remove babel because isn't used
+- export refactoring
++ improve myPosition from JSON to object
+? difference between floor and actualFloor
++ constant for groundFloor
++ in the test scenario replace numbers with constant to improve readibility

@@ -1,8 +1,9 @@
-const staircaseMarker = 1;
-const carMarker = 2;
+const EMPTY = 0;
+const STAIR = 1;
+const CAR = 2;
 
 
-const inWhichParkSlotIsMyCarOnThisFloor = carparkFloor => carparkFloor.indexOf(carMarker);
+const inWhichParkSlotIsMyCarOnThisFloor = carparkFloor => carparkFloor.indexOf(CAR);
 
 
 const provideTheFullPathToTheExit = myPosition => myPosition.path;
@@ -41,12 +42,12 @@ const moveToTheExit = (carpark, myPosition) => {
 
 // eslint-disable-next-line arrow-body-style
 const AreYouOnAStaircase = (carpark, myPosition) => {
-  return carpark[myPosition.actualFloorId].indexOf(staircaseMarker) === myPosition.actualParkingId;
+  return carpark[myPosition.actualFloorId].indexOf(STAIR) === myPosition.actualParkingId;
 };
 
 
 const moveToTheStaircase = (carpark, myPosition) => {
-  const staircaseId = carpark[myPosition.actualFloorId].indexOf(staircaseMarker);
+  const staircaseId = carpark[myPosition.actualFloorId].indexOf(STAIR);
   const stepsToTheStaircase = myPosition.actualParkingId - staircaseId;
   const myNewPosition = myPosition;
   if (stepsToTheStaircase < 0) {
@@ -86,6 +87,9 @@ function escape(carpark) {
 
 
 module.exports.escape = escape;
+module.exports.EMPTY = EMPTY;
+module.exports.STAIR = STAIR;
+module.exports.CAR = CAR;
 module.exports.understandWhereAmI = understandWhereIAm;
 module.exports.moveToTheExit = moveToTheExit;
 module.exports.moveDownWithTheStaircase = moveDownWithTheStaircase;
