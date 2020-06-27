@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=undeadgrishnackh_CarParkEscape&metric=alert_status)](https://sonarcloud.io/dashboard?id=undeadgrishnackh_CarParkEscape)
+
 ### MOB Code review exercise
 
 This code is a solution built for the CodeWars Car Park Escape kata, designed to provide a MOB refactoring challenge to a 
