@@ -81,7 +81,7 @@
     "lint-staged": "^15.2.0",
     "opn-cli": "^3.1.0",
     "prettier": "^1.14.3",
-    "rimraf": "^2.6.2",
+    "rimraf": "^5.0.5",
     "standard-changelog": "^2.0.1"
   }
 }
