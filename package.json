@@ -82,6 +82,6 @@
     "opn-cli": "^4.1.0",
     "prettier": "^3.2.4",
     "rimraf": "^5.0.5",
-    "standard-changelog": "^5.0.0"
+    "standard-changelog": "^6.0.0"
   }
 }
